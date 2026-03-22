@@ -5,6 +5,11 @@
 
   "description": "Download your exams and answers as PDF from ANS.",
 
+  "host_permissions": [
+    "*://*.ans.app/*",
+    "*://*.objectstore.eu/*"
+  ],
+
   "content_scripts": [
     {
       "matches": ["*://*.ans.app/*"],

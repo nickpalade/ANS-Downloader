@@ -29,16 +29,6 @@ async function download() {
         return;
     }
 
-    // Legacy fallback: html2pdf for quiz panels
-    const generalAnswers = document.querySelectorAll('.quiz-panel');
-    if (generalAnswers != null && generalAnswers.length >= 1) {
-        for (let i = 0; i < generalAnswers.length; i++) {
-            alert("Rendering pdf, this might take a while");
-            html2pdf().set({ margin: 2 }).from(generalAnswers[i]).save("ANS-" + document.title + "-" + (i + 1) + ".pdf");
-        }
-        return;
-    }
-
     alert("ANS Downloader was not able to find the requested content on this page");
 }
 

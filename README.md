@@ -12,9 +12,18 @@ To quote the original creator: **"Is this legal? I hope so."**
 
 ## Installing — Firefox / Zen Browser
 
-1. Download **[ANS-Downloader-firefox.xpi](ANS-Downloader-firefox.xpi)**
-2. Go to **Add-ons & Themes** → cog wheel → **Install Add-on From File**
-3. Select the downloaded `.xpi` file
+Firefox requires extensions to be signed by Mozilla for permanent installation.
+
+### Option A: Temporary install (works immediately)
+1. Go to `about:debugging#/runtime/this-firefox`
+2. Click **Load Temporary Add-on...**
+3. Select `manifest.json` from the downloaded/cloned folder
+> Resets on browser restart — just repeat steps 2–3 to reload.
+
+### Option B: Disable signature check (permanent, developer only)
+1. Go to `about:config` → search `xpinstall.signatures.required` → set to `false`
+2. Download **[ANS-Downloader-firefox.xpi](ANS-Downloader-firefox.xpi)**
+3. Go to **Add-ons & Themes** → cog wheel → **Install Add-on From File** → select the `.xpi`
 
 ---
 
@@ -38,7 +47,6 @@ Once you have your exam PDF, you can upload it directly to any AI (ChatGPT, Clau
 On any ANS grading review page (`/grading/view/...`), a **Download** button is injected into the toolbar. Clicking it:
 
 - Finds all file tabs (Result, Formulas, etc.) and downloads each PDF directly using the presigned URLs embedded in the page
-- Falls back to html2pdf rendering for older page layouts
 
 ---
 
@@ -47,19 +55,9 @@ On any ANS grading review page (`/grading/view/...`), a **Download** button is i
 **Does this work on Chromium based browsers?**\
 Yes, as of this fork. The extension uses Manifest V3 which is supported by both Firefox and Chrome.
 
-**Can I have feature X?**\
-Only if you make it yourself. Pull Requests welcome.
-
-**Are you going to steal my ANS session cookie?**\
-Absolutely. After putting in the effort I at least want to have a laugh viewing your test results. *(— Z3r0byte)*
-
-**Is this legal?**\
-I hope so. *(— Z3r0byte)*
-
 ---
 
 ## License
 
 Licensed under the [Apache 2.0 License](LICENSE).
-Uses the [html2pdf.js](https://ekoopmans.github.io/html2pdf.js/) library by Erik Koopmans.
 Original extension by [Z3r0byte](https://github.com/Z3r0byte/ANS-Downloader).
